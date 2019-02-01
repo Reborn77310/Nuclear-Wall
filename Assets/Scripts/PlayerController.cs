@@ -8,13 +8,16 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity = Vector3.zero;
     public float Speed = 10;
     Transform shotPoint;
+    public Sprite[] DifferentColors;
+    SpriteRenderer avatarSprite;
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         shotPoint = GameObject.Find("shotPoint").transform;
+        avatarSprite = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         Move();
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void NormalShot()
     {
         Instantiate(Resources.Load("Prefabs/normalShot"),shotPoint.transform.position,shotPoint.transform.rotation);
+        ChangeColor();
     }
 
     void Move()
@@ -34,5 +38,17 @@ public class PlayerController : MonoBehaviour
         var horizontal = Input.GetAxis("Horizontal");
         velocity.x = horizontal * Time.deltaTime * Speed;
         rigid.velocity = velocity;
+    }
+
+    void ChangeColor()
+    {
+        var random = Random.Range(0,4);
+        if(avatarSprite.sprite == DifferentColors[random])
+        {
+            ChangeColor();
+        }
+        else{
+            avatarSprite.sprite = DifferentColors[random];
+        }
     }
 }

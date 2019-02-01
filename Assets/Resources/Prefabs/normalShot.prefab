@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212011414307192518}
   - component: {fileID: 50030806797311200}
   - component: {fileID: 61280021976615854}
+  - component: {fileID: 114820102196775118}
   m_Layer: 8
   m_Name: normalShot
   m_TagString: Untagged
@@ -87,6 +88,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3023737, y: 0.041744262}
   m_EdgeRadius: 0
+--- !u!114 &114820102196775118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437316190650356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6894d09928a234aa8ff97f12d4f932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 600
 --- !u!212 &212011414307192518
 SpriteRenderer:
   m_ObjectHideFlags: 1
