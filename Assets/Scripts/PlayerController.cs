@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     void NormalShot()
     {
-        Instantiate(Resources.Load("Prefabs/normalShot"),shotPoint.transform.position,shotPoint.transform.rotation);
+        Instantiate(Resources.Load("Prefabs/Tirs/" + avatarSprite.sprite.name),shotPoint.transform.position,shotPoint.transform.rotation);
         ChangeColor();
     }
 

@@ -18,9 +18,17 @@ public class BulletManager : MonoBehaviour
 		rigid.velocity = velocity;
     }
 
-	void OnCollisionEnter()
+	void OnCollisionEnter2D(Collision2D col)
 	{
+		string[] splitArray = col.gameObject.name.Split(char.Parse("_"));
+		if ((splitArray[1] + "(Clone)") == this.gameObject.name)
+		{
+			Destroy(col.gameObject);
+		}
+		else
+		{
+			GameObject.Find("GameManager").GetComponent<GameManager>().SpawnCube(col.gameObject);
+		}
 		Destroy(this.gameObject);
-		print("lameredarthurlapute");
 	}
 }
