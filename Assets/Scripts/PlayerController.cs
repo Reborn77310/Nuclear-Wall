@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     Rigidbody2D rigid;
     Vector3 velocity = Vector3.zero;
     public float Speed = 10;
@@ -21,18 +22,26 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-        if(Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             NormalShot();
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            LightShot();
         }
     }
 
     void NormalShot()
     {
-        Instantiate(Resources.Load("Prefabs/Tirs/" + avatarSprite.sprite.name),shotPoint.transform.position,shotPoint.transform.rotation);
+        Instantiate(Resources.Load("Prefabs/Tirs/" + avatarSprite.sprite.name), shotPoint.transform.position, shotPoint.transform.rotation);
         ChangeColor();
     }
 
+    void LightShot()
+    {
+        Instantiate(Resources.Load("Prefabs/Tirs/Lumiere"), shotPoint.transform.position, shotPoint.transform.rotation);
+    }
     void Move()
     {
         var horizontal = Input.GetAxis("Horizontal");
@@ -42,12 +51,13 @@ public class PlayerController : MonoBehaviour
 
     void ChangeColor()
     {
-        var random = Random.Range(0,4);
-        if(avatarSprite.sprite == DifferentColors[random])
+        var random = Random.Range(0, 4);
+        if (avatarSprite.sprite == DifferentColors[random])
         {
             ChangeColor();
         }
-        else{
+        else
+        {
             avatarSprite.sprite = DifferentColors[random];
         }
     }
